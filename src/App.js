@@ -4,6 +4,7 @@ import "./sass/main.scss";
 //* Components
 import Loader from './components/Loader';
 import { useEffect, useState } from 'react';
+import Banner from './components/Banner';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Loader setLoading={setLoading}/>
     ) : (
       <>
+      <Banner />
       </>
     )}
     </>
