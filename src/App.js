@@ -5,6 +5,7 @@ import "./sass/main.scss";
 import Loader from './components/Loader';
 import { useEffect, useState } from 'react';
 import Banner from './components/Banner';
+import Header from './components/Header';
 
 function App() {
 
@@ -22,7 +23,15 @@ function App() {
       <Loader setLoading={setLoading}/>
     ) : (
       <>
+      <Header />
       <Banner />
+      {
+        !loading && (
+          <div className="transition-image final">
+            <img src={process.env.PUBLIC_URL + `/images/image-2.jpg`}/>
+          </div>
+        )
+      }
       </>
     )}
     </>
