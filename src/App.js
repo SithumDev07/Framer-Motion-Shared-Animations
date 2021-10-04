@@ -1,6 +1,8 @@
 import './App.css';
 import "./sass/main.scss";
 
+import {motion, AnimatePresence, AnimateSharedLayout} from 'framer-motion'
+
 //* Components
 import Loader from './components/Loader';
 import { useEffect, useState } from 'react';
@@ -18,9 +20,12 @@ function App() {
   }, [loading]);
 
   return (
-    <>
+    <AnimateSharedLayout type="crossfade">
+    <AnimatePresence>
     {loading ? (
-      <Loader setLoading={setLoading}/>
+      <motion.div key="loader">
+        <Loader setLoading={setLoading}/>
+      </motion.div>
     ) : (
       <>
       <Header />
@@ -28,13 +33,21 @@ function App() {
       {
         !loading && (
           <div className="transition-image final">
-            <img src={process.env.PUBLIC_URL + `/images/image-2.jpg`}/>
+            <motion.img 
+              src={process.env.PUBLIC_URL + `/images/image-2.jpg`} 
+              layoutId="main-image-1" 
+              transition={{
+                ease: [0.6,0.01,-0.05,0.95],
+                duration: 1.6
+              }}
+            />
           </div>
         )
       }
       </>
     )}
-    </>
+    </AnimatePresence>
+    </AnimateSharedLayout>
   );
 }
 
