@@ -79,6 +79,7 @@
             justify-content: center;
             flex-direction: column;
             left: 160px;
+            cursor: pointer;
 
             @media (max-width: $layout-breakpoint-medium) {
                 left: 60px;

@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react'
 const banner = {
     animate: {
         transition: {
-            delayChildren: 0.1,
-            staggerChildren: 0.3
+            delayChildren: 0.4,
+            staggerChildren: 0.1
         }
     }
 }
